@@ -6,3 +6,6 @@ We have researched on some models such as BERT and LSTMs which have currently be
 
 ## Dataset
 Labeled Unreliable News (LUN) [Download Link](https://github.com/BUPT-GAMMA/CompareNet_FakeNewsDetection/releases/tag/dataset), Satirical and Legitimate News (SLN) [Download Link](http://victoriarubin.fims.uwo.ca/news-verification/data-to-go/)
+
+## Contributors
+@howtoosee
