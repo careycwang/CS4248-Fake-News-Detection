@@ -16,3 +16,4 @@ We have researched on some models such as BERT and LSTMs which have currently be
 
 - [Chen Xihao](https://github.com/howtoosee)
 - [Wang Changqin](https://github.com/archiewang0716)
+- [Zhang Haolin](https://github.com/A0236053M)
