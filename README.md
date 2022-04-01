@@ -13,7 +13,7 @@ We have researched on some models such as BERT and LSTMs which have currently be
 - [Satirical and Legitimate News (SLN)](http://victoriarubin.fims.uwo.ca/news-verification/data-to-go/)
 
 Please make sure your dataset is downloaded and placed as follows:
-<code>
+```
 CS4248-Fake-News-Detection
 │   README.md
 │   *.py
@@ -22,7 +22,7 @@ CS4248-Fake-News-Detection
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
-</code>
+```
 
 
 
