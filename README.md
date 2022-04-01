@@ -39,6 +39,7 @@ To train a BERT+LSTM model, you should run the following command:
 ```
 python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --mode 0
 ```
+You can also download the trained models in this [Google Drive link](https://drive.google.com/drive/folders/12kBrRDdM08Hp4YCxjLcYCZjjuUiiyCx4?usp=sharing).
 
 ## Contributors
 
