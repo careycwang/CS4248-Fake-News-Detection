@@ -24,6 +24,16 @@ CS4248-Fake-News-Detection
     |   test.xlsx
 ```
 
+## Dependencies
+You have to download the dependency packages before running the code:
+```
+pytorch 1.0.0
+pandas
+tqdm
+xlrd (pip install xlrd)
+bert-pytorch (pip install pytorch-pretrained-bert)
+```
+
 ## Instructions
 To train a BERT+LSTM model, you should run the following command:
 ```
