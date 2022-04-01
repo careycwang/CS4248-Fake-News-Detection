@@ -24,7 +24,11 @@ CS4248-Fake-News-Detection
     |   test.xlsx
 ```
 
-
+## Instructions
+To train a BERT+LSTM model, you should run the following command:
+```
+python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --mode 0
+```
 
 ## Contributors
 
