@@ -169,7 +169,7 @@ GRU | - | - | - | -
 BiGRU | - | - | - | -
 LSTM + Attention | 62.1 | 63.8 | 62.1 | 61.8 / 62.1
 BiLSTM + Attention | - | - | - | -
-LSTM + Attention + GCN | 63.2 | 66.3 | 63.0 | 62.3 / 63.1
+**LSTM + Attention + GCN | 63.2 | 66.3 | 63.0 | 62.3 / 63.1**
 BiLSTM + Attention + GCN | - | - | - | -
 
 ## Contributors
