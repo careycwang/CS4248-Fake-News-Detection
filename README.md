@@ -152,9 +152,9 @@ LSTM | - | - | - | -
 BiLSTM | - | - | - | -
 GRU | - | - | - | -
 BiGRU | - | - | - | -
-LSTM + Attention | 93.3 | 93.3 | 92.4 | 92.5
+LSTM + Attention | 93.3 | 93.3 | 92.4 | 92.5 / 93.3
 BiLSTM + Attention | - | - | - | -
-LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.2
+LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
 BiLSTM + Attention + GCN | - | - | - | -
 
 
