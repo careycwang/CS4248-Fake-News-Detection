@@ -35,10 +35,32 @@ pytorch-pretrained-bert
 ```
 
 ## Instructions
-To train a BERT+LSTM model, you should run the following command:
+To train a LSTM model, you should run the following command:
 ```
-python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --mode 0
+python main.py --batch_size 1024 --config lstm --encoder 0 --ntags 4 --mode 0
 ```
+
+To train a BiLSTM model, you should run the following command:
+```
+python main.py --batch_size 1024 --config bilstm --encoder 0 --ntags 4 --mode 0 --bidirectional
+```
+
+To train a LSTM + Attention model, you should run the following command:
+```
+python main.py --batch_size 512 --config lstm_att --encoder 0 --ntags 4 --mode 0 --attention
+```
+
+To train a BiLSTM + Attention model, you should run the following command:
+```
+python main.py --batch_size 512 --config bilstm_att --encoder 0 --ntags 4 --mode 0 --bidirectional -- attention
+```
+
+To train a BERT + LSTM model, you should run the following command:
+```
+python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --ntags 4 --mode 0
+```
+
+
 You can also download our trained models in this [Google Drive link](https://drive.google.com/drive/folders/12kBrRDdM08Hp4YCxjLcYCZjjuUiiyCx4?usp=sharing).
 
 ## Experiment Results
