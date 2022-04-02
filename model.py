@@ -20,12 +20,12 @@ class Classify(torch.nn.Module):
         else:
             self.word_embeddings.weight.data.copy_(torch.from_numpy(pte))
         if params.attention == True:
-            self.text_encoder = LstmAttentionEncoder(params.hidden_dim, params.emb_dim, params.bidirectional)
+            self.text_encoder = LstmAttentionEncoder(params.hidden_dim, params.emb_dim, params.bidirectional, params.encoder)
         else:
             if params.encoder == 1:
                 self.text_encoder = CnnEncoder(params.filters, params.emb_dim, params.kernel_size)
             else:
-                self.text_encoder = LstmEncoder(params.hidden_dim, params.emb_dim, params.bidirectional)
+                self.text_encoder = LstmEncoder(params.hidden_dim, params.emb_dim, params.bidirectional, params.encoder)
         # self.text_encoder = CnnEncoder(
         #     params.filters, params.emb_dim, params.kernel_size) if params.encoder == 1 else LstmEncoder(
         #     params.hidden_dim, params.emb_dim, params.bidirectional)
@@ -245,10 +245,10 @@ class Attention(torch.nn.Module):
         return energy, linear_combination
 
 class LstmEncoder(torch.nn.Module):
-    def __init__(self, hidden_dimension, embedding_dimension, bidirectional=True):
+    def __init__(self, hidden_dimension, embedding_dimension, bidirectional=True, encoder=0):
         super(LstmEncoder, self).__init__()
         self.hidden_dim = hidden_dimension
-        self.lstm = nn.LSTM(embedding_dimension, hidden_dimension, bidirectional=bidirectional)
+        self.lstm = nn.LSTM(embedding_dimension, hidden_dimension, bidirectional=bidirectional) if encoder!=6 else nn.GRU(embedding_dimension, hidden_dimension, bidirectional=bidirectional)
         self.bidirectional = bidirectional
         # self.attention_dim = 2*hidden_dimension if self.bidirectional else hidden_dimension
         # self.attention = Attention(self.attention_dim, self.attention_dim, self.attention_dim)
@@ -273,13 +273,14 @@ class LstmEncoder(torch.nn.Module):
         return hn[-1]  # bs * hidden_dim
 
 class LstmAttentionEncoder(torch.nn.Module):
-    def __init__(self, hidden_dimension, embedding_dimension, bidirectional=True):
-        super(LstmEncoder, self).__init__()
+    def __init__(self, hidden_dimension, embedding_dimension, bidirectional=True, encoder=0):
+        super(LstmAttentionEncoder, self).__init__()
         self.hidden_dim = hidden_dimension
-        self.lstm = nn.LSTM(embedding_dimension, hidden_dimension, bidirectional=True)
+        self.lstm = nn.LSTM(embedding_dimension, hidden_dimension, bidirectional=bidirectional) if encoder!=6 else nn.GRU(embedding_dimension, hidden_dimension, bidirectional=bidirectional)
         self.bidirectional = bidirectional
         self.attention_dim = 2*hidden_dimension if self.bidirectional else hidden_dimension
         self.attention = Attention(self.attention_dim, self.attention_dim, self.attention_dim)
+        print("Using Attention Layer")
         print("Using Birectional Encoder: ", self.bidirectional)
 
     def forward(self, embeds, seq_lens):

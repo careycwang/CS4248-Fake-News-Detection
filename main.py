@@ -36,7 +36,8 @@ def parse_arguments():
                                                                                '2: GCN encoder for text'
                                                                                '3: GCN + attention'
                                                                                '4: GAT'
-                                                                               '5: GAT with 2 attn heads')
+                                                                               '5: GAT with 2 attn heads'
+                                                                               '6: GRU encoder for text')
     parser.add_argument("--config", dest="config", type=str, default='lstm_no_pte', help='Name for saving plots')
     parser.add_argument("--model_file", dest="model_file", type=str, default='model_gat_adj_latest.t7', help='For '
                                                                                 'evaluating a saved model')
