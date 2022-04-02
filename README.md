@@ -68,6 +68,7 @@ python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --
 You can also download our trained models in the [Google Drive link](https://drive.google.com/drive/folders/12kBrRDdM08Hp4YCxjLcYCZjjuUiiyCx4?usp=sharing).
 
 To test the accuracy of the models, run the following command:
+
 Evaluate the CNN model:
 ```
 python main.py --batch_size 1024 --config cnn --encoder 1 --ntags 4 --mode 0
