@@ -27,7 +27,7 @@ CS4248-Fake-News-Detection
 ## Dependencies
 You have to download the dependency packages before running the code:
 ```
-pytorch 1.8.0
+pytorch==1.8.0
 pandas
 tqdm
 xlrd
@@ -57,7 +57,7 @@ python main.py --batch_size 512 --config lstm_att --encoder 0 --ntags 4 --mode 0
 
 To train a BiLSTM + Attention model, you should run the following command:
 ```
-python main.py --batch_size 512 --config bilstm_att --encoder 0 --ntags 4 --mode 0 --bidirectional -- attention
+python main.py --batch_size 512 --config bilstm_att --encoder 0 --ntags 4 --mode 0 --bidirectional --attention
 ```
 
 To train a BERT + LSTM model, you should run the following command:
@@ -71,36 +71,36 @@ To test the accuracy of the models, run the following command:
 
 Evaluate the CNN model:
 ```
-python main.py --batch_size 1024 --config cnn --encoder 1 --ntags 4 --mode 0
+python main.py --batch_size 1024 --encoder 1 --model_file model_cnn.t7 --ntags 4 --mode 1
 ```
 
 Evaluate the LSTM model:
 ```
-python main.py --batch_size 1024 --config lstm --encoder 0 --ntags 4 --mode 0
+python main.py --batch_size 1024 --encoder 1 --model_file model_lstm.t7 --ntags 4 --mode 1
 ```
 
 Evaluate the BiLSTM model:
 ```
-python main.py --batch_size 1024 --config bilstm --encoder 0 --ntags 4 --mode 0 --bidirectional
+python main.py --batch_size 1024 --encoder 1 --model_file model_bilstm.t7 --ntags 4 --mode 1
 ```
 
 Evaluate the LSTM + Attention model:
 ```
-python main.py --batch_size 512 --config lstm_att --encoder 0 --ntags 4 --mode 0 --attention
+python main.py --batch_size 1024 --encoder 1 --model_file model_lstm_att.t7 --ntags 4 --mode 1
 ```
 
 Evaluate the BiLSTM + Attention model:
 ```
-python main.py --batch_size 512 --config bilstm_att --encoder 0 --ntags 4 --mode 0 --bidirectional -- attention
+python main.py --batch_size 1024 --encoder 1 --model_file model_bilstm_att.t7 --ntags 4 --mode 1
 ```
 
 Evaluate the BERT + LSTM model:
 ```
-python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --ntags 4 --mode 0
+python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_length 500 --max_sent_length 70 --ntags 4 --mode 1
 ```
 
 
-## Experiment Results
+## Experiment Results (Not completed)
 
 ### In domain dev set accuracy
 Model | Acc | Prec | Recall | F1
