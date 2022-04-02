@@ -142,21 +142,8 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 
 ## Experiment Results (Not completed)
 
+### For four classes Satire, Hoax, Propaganda and Trusted
 ### In domain dev set accuracy
-Model | Acc | Prec | Recall | F1
---- | --- | --- | --- | ---
-CNN | 67.5 | 67.5 | 67.5 | 67.4
-BERT + LSTM | 78.1 | 78.1 | 78.1 | 78.0
-LSTM | 81.4 | 82.2 | 81.4 | 81.3
-BiLSTM | 81.4 | 82.2 | 81.4 | 81.3
-GRU | 81.4 | 82.2 | 81.4 | 81.3
-BiGRU | 81.4 | 82.2 | 81.4 | 81.3
-BiLSTM + Attention | 81.4 | 82.2 | 81.4 | 81.3
-BiGRU + Attention | 81.4 | 82.2 | 81.4 | 81.3
-BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
-BiGRU + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
-
-### Out of domain test set 1 accuracy
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
 CNN | 67.5 | 67.5 | 67.5 | 67.4
