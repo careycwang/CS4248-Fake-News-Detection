@@ -27,11 +27,11 @@ CS4248-Fake-News-Detection
 ## Dependencies
 You have to download the dependency packages before running the code:
 ```
-pytorch 1.0.0
+pytorch 1.8.0
 pandas
 tqdm
-xlrd (pip install xlrd)
-bert-pytorch (pip install pytorch-pretrained-bert)
+xlrd
+pytorch-pretrained-bert
 ```
 
 ## Instructions
