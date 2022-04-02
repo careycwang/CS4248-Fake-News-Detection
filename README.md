@@ -41,6 +41,50 @@ python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --
 ```
 You can also download our trained models in this [Google Drive link](https://drive.google.com/drive/folders/12kBrRDdM08Hp4YCxjLcYCZjjuUiiyCx4?usp=sharing).
 
+## Experiment Results
+
+### In domain dev set accuracy
+Model | Acc | Prec | Recall | F1
+--- | --- | --- | --- | ---
+CNN | 67.5 | 67.5 | 67.5 | 67.4
+BERT + LSTM | 78.1 | 78.1 | 78.1 | 78.0
+LSTM | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM | 81.4 | 82.2 | 81.4 | 81.3
+GRU | 81.4 | 82.2 | 81.4 | 81.3
+BiGRU | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM + Attention | 81.4 | 82.2 | 81.4 | 81.3
+BiGRU + Attention | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
+BiGRU + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
+
+### Out of domain test set 1 accuracy
+Model | Acc | Prec | Recall | F1
+--- | --- | --- | --- | ---
+CNN | 67.5 | 67.5 | 67.5 | 67.4
+BERT + LSTM | 78.1 | 78.1 | 78.1 | 78.0
+LSTM | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM | 81.4 | 82.2 | 81.4 | 81.3
+GRU | 81.4 | 82.2 | 81.4 | 81.3
+BiGRU | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM + Attention | 81.4 | 82.2 | 81.4 | 81.3
+BiGRU + Attention | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
+BiGRU + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
+
+### Out of domain test set 2 accuracy
+Model | Acc | Prec | Recall | F1
+--- | --- | --- | --- | ---
+CNN | 67.5 | 67.5 | 67.5 | 67.4
+BERT + LSTM | 78.1 | 78.1 | 78.1 | 78.0
+LSTM | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM | 81.4 | 82.2 | 81.4 | 81.3
+GRU | 81.4 | 82.2 | 81.4 | 81.3
+BiGRU | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM + Attention | 81.4 | 82.2 | 81.4 | 81.3
+BiGRU + Attention | 81.4 | 82.2 | 81.4 | 81.3
+BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
+BiGRU + Attention + GCN | 85.0 | 85.9 | 85.0 | 85.1
+
 ## Contributors
 
 - [Chen Xihao](https://github.com/howtoosee)
