@@ -60,6 +60,16 @@ To train a BiLSTM + Attention model, you should run the following command:
 python main.py --batch_size 512 --config bilstm_att --encoder 0 --ntags 4 --mode 0 --bidirectional --attention
 ```
 
+To train a GRU + Attention model, you should run the following command:
+```
+python main.py --batch_size 512 --config gru_att --encoder 0 --ntags 4 --mode 0 --attention
+```
+
+To train a BiGRU + Attention model, you should run the following command:
+```
+python main.py --batch_size 512 --config bigru_att --encoder 0 --ntags 4 --mode 0 --bidirectional --attention
+```
+
 To train a BERT + LSTM model, you should run the following command:
 ```
 python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --ntags 4 --mode 0
@@ -92,6 +102,16 @@ python main.py --batch_size 1024 --encoder 1 --model_file model_lstm_att.t7 --nt
 Evaluate the BiLSTM + Attention model:
 ```
 python main.py --batch_size 1024 --encoder 1 --model_file model_bilstm_att.t7 --ntags 4 --mode 1
+```
+
+Evaluate the GRU + Attention model:
+```
+python main.py --batch_size 1024 --encoder 1 --model_file model_gru_att.t7 --ntags 4 --mode 1
+```
+
+Evaluate the BiGRU + Attention model:
+```
+python main.py --batch_size 1024 --encoder 1 --model_file model_bigru_att.t7 --ntags 4 --mode 1
 ```
 
 Evaluate the BERT + LSTM model:
