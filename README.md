@@ -124,6 +124,16 @@ Evaluate the BiGRU + Attention model:
 python main.py --batch_size 1024 --encoder 0 --model_file model_bigru_att.t7 --ntags 4 --mode 1
 ```
 
+Evaluate the LSTM + Attention + GCN model:
+```
+python main.py --batch_size 32 --max_sent_len 50 --encoder 2 --model_file model_lstm_att_gcn.t7 --ntags 4  --mode 1
+```
+
+Evaluate the BiLSTM + Attention + GCN model:
+```
+python main.py --batch_size 32 --max_sent_len 50 --encoder 2 --model_file model_bilstm_att_gcn.t7 --ntags 4  --mode 1
+```
+
 Evaluate the BERT + LSTM model:
 ```
 python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_length 500 --max_sent_length 70 --ntags 4 --mode 1
