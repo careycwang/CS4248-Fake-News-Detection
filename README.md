@@ -25,7 +25,7 @@ CS4248-Fake-News-Detection
 ```
 
 ## Dependencies
-You have to download the dependency packages before running the code:
+You have to download the dependency packages before running the code: (Python 3.7)
 ```
 pytorch==1.8.0
 pandas
