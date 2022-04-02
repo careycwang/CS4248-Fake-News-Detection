@@ -72,12 +72,12 @@ python main.py --batch_size 512 --config bigru_att --encoder 0 --ntags 4 --mode 
 
 To train a LSTM + Attention + GCN model, you should run the following command:
 ```
-python main.py --batch_size 32 --max_epochs 10 --config lstm_att_gcn --max_sent_len 50 --encoder 2 --mode 0 --attention
+python main.py --batch_size 32 --max_epochs 10 --config lstm_att_gcn --max_sent_len 50 --encoder 2 --ntags 4 --mode 0 --attention
 ```
 
 To train a BiLSTM + Attention + GCN model, you should run the following command:
 ```
-python main.py --batch_size 32 --max_epochs 10 --config bilstm_att_gcn --max_sent_len 50 --encoder 2 --mode 0 --attention --bidirectional
+python main.py --batch_size 32 --max_epochs 10 --config bilstm_att_gcn --max_sent_len 50 --encoder 2 --ntags 4 --mode 0 --attention --bidirectional
 ```
 
 To train a BERT + LSTM model, you should run the following command:
