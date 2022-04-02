@@ -1,6 +1,7 @@
 # CS4248-Fake-News-Detection
 
 CS4248 Group 23 Project: Combining Syntax- and Semantic-level Representations for Unreliable News Classification
+
 Reference Github: https://github.com/MysteryVaibhav/fake_news_semantics
 
 ## Introduction
