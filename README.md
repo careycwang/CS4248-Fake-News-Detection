@@ -149,7 +149,7 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
 CNN | - | - | - | -
-BERT + LSTM | - | - | - | -
+BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
 LSTM | - | - | - | -
 BiLSTM | - | - | - | -
 GRU | - | - | - | -
@@ -164,7 +164,7 @@ BiLSTM + Attention + GCN | - | - | - | -
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
 CNN | - | - | - | -
-BERT + LSTM | - | - | - | -
+BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
 LSTM | - | - | - | -
 BiLSTM | - | - | - | -
 GRU | - | - | - | -
