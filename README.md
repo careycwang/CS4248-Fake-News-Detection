@@ -213,7 +213,7 @@ BiLSTM + Attention + GCN | - | - | - | -
 ### Out of domain test set 2 accuracy
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR | - | - | - | -
+LR | 62.55 | 63.38 | 62.55 | 62.30 / 62.32
 CNN | - | - | - | -
 BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
 LSTM | - | - | - | -
