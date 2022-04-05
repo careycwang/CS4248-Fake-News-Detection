@@ -25,7 +25,6 @@ CS4248-Fake-News-Detection
     │   *.py
 │   
 └───data
-    │   glove.6B.300d.txt
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
