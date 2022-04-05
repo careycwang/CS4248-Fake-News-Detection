@@ -2,6 +2,8 @@
 
 CS4248 Group 23 Project: Combining Syntax- and Semantic-level Representations for Unreliable News Classification
 
+Reference Github: https://github.com/MysteryVaibhav/fake_news_semantics
+
 ## Introduction
 
 We have researched on some models such as BERT and LSTMs which have currently been implemented. Furthermore, we’ve started exploring different feature extraction methods (on both semantics and syntax).
@@ -11,6 +13,7 @@ We have researched on some models such as BERT and LSTMs which have currently be
 
 - [Labeled Unreliable News (LUN)](https://github.com/BUPT-GAMMA/CompareNet_FakeNewsDetection/releases/tag/dataset)
 - [Satirical and Legitimate News (SLN)](http://victoriarubin.fims.uwo.ca/news-verification/data-to-go/)
+- [Global Vectors for Word Representation (GloVe)](https://nlp.stanford.edu/projects/glove/)
 
 Please make sure your dataset is downloaded and placed as follows:
 ```
@@ -26,6 +29,7 @@ CS4248-Fake-News-Detection
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
+    |   glove.6B.300d.txt
 ```
 
 ## Dependencies
@@ -90,6 +94,11 @@ You can also download our trained models in the [Google Drive link](https://driv
 
 To test the accuracy of the models, run the following command:
 
+Evaluate the Logistic Regression model:
+```
+python traditional.py
+```
+
 Evaluate the CNN model:
 ```
 python main.py --batch_size 1024 --encoder 1 --model_file model_cnn.t7 --ntags 4 --mode 1
@@ -144,6 +153,7 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 ## Experiment Results (Not completed)
 
 ### In domain dev set accuracy
+<<<<<<< HEAD
 | Model                    | Acc  | Prec | Recall | F1   |
 |--------------------------|------|------|--------|------|
 | CNN                      | 67.5 | 67.5 | 67.5   | 67.4 |
@@ -184,6 +194,37 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 | BiGRU + Attention        | 81.4 | 82.2 | 81.4   | 81.3 |
 | BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0   | 85.1 |
 | BiGRU + Attention + GCN  | 85.0 | 85.9 | 85.0   | 85.1 |
+=======
+Model | Acc | Prec | Recall | F1
+--- | --- | --- | --- | ---
+LR  | - | - | - | -
+CNN | - | - | - | -
+BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
+LSTM | - | - | - | -
+BiLSTM | - | - | - | -
+GRU | - | - | - | -
+BiGRU | - | - | - | -
+LSTM + Attention | 93.3 | 93.3 | 92.4 | 92.5 / 93.3
+BiLSTM + Attention | - | - | - | -
+LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
+BiLSTM + Attention + GCN | - | - | - | -
+
+
+### Out of domain test set 2 accuracy
+Model | Acc | Prec | Recall | F1
+--- | --- | --- | --- | ---
+LR | - | - | - | -
+CNN | - | - | - | -
+BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
+LSTM | - | - | - | -
+BiLSTM | - | - | - | -
+GRU | - | - | - | -
+BiGRU | - | - | - | -
+LSTM + Attention | 62.1 | 63.8 | 62.1 | 61.8 / 62.1
+BiLSTM + Attention | - | - | - | -
+**LSTM + Attention + GCN** | **63.2** | **66.3** | **63.0** | **62.3 / 63.1**
+BiLSTM + Attention + GCN | - | - | - | -
+>>>>>>> a99187940df2886fd932f58a809b121734b3d231
 
 ## Contributors
 
