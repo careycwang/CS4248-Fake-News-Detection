@@ -147,15 +147,12 @@ class Utils:
         embeddings = np.random.uniform(-0.25, 0.25, (len(self.data_loader.w2i), self.params.emb_dim))
         count = 0
         with open(self.params.pte, 'r', encoding='utf-8') as f:
-            ignore_first_row = True
             for row in f.readlines():
-                if ignore_first_row:
-                    ignore_first_row = False
-                    continue
-                split_row = row.split(" ")
-                vec = np.array(split_row[1:-1]).astype(np.float)
-                if split_row[0] in self.data_loader.w2i and len(vec) == self.params.emb_dim:
-                    embeddings[self.data_loader.w2i[split_row[0]]] = vec
+                word, coefs = row.split(maxsplit=1)
+                vec = np.fromstring(coefs, "f", sep=" ")
+                if word in self.data_loader.w2i:
+                    embeddings[self.data_loader.w2i[word]] = vec
                     count += 1
+
         print("Successfully loaded {} embeddings out of {}".format(count, len(self.data_loader.w2i)))
         return np.array(embeddings)
