@@ -8,6 +8,8 @@ import seaborn as sn
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from util import Utils
+
 
 class Evaluator:
     def __init__(self, params, utils, data_loader):
@@ -51,8 +53,12 @@ class Evaluator:
         return accuracy, all_actual, all_predicted
 
     def evaluate(self):
+        pte=None
+        if self.params.pte:
+            pte = Utils(self.params, self.data_loader).get_pre_trained_embeddings()
+
         model = Classify(self.params, vocab_size=len(self.data_loader.w2i),
-                         ntags=self.data_loader.ntags, pte=None)
+                         ntags=self.data_loader.ntags, pte=pte)
         if torch.cuda.is_available():
             model = model.cuda()
         # Load the model weights

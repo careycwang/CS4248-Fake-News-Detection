@@ -59,7 +59,7 @@ def main():
 
     if params.mode == 0:
         # Start training
-        trainer = Trainer(params, u)
+        trainer = Trainer(params, u, dl)
         trainer.log_time['data_loading'] = timer() - s_t
         trainer.train()
         print(trainer.log_time)
