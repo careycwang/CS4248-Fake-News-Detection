@@ -18,20 +18,21 @@ CS4248-Fake-News-Detection
 │   README.md
 │   *.py
 │   
+└───src
+    │   *.py
+│   
 └───data
+    │   glove.6B.300d.txt
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
 ```
 
 ## Dependencies
-You have to download the dependency packages before running the code: (Python 3.7)
+Python version: `3.7`
+Please install dependencies by running the following command:
 ```
-pytorch==1.8.0
-pandas
-tqdm
-xlrd
-pytorch-pretrained-bert
+pip install -r requirements.txt
 ```
 
 ## Instructions
@@ -126,12 +127,12 @@ python main.py --batch_size 1024 --encoder 0 --model_file model_bigru_att.t7 --n
 
 Evaluate the LSTM + Attention + GCN model:
 ```
-python main.py --batch_size 32 --max_sent_len 50 --encoder 2 --model_file model_lstm_att_gcn.t7 --ntags 4 --mode 1
+python main.py --batch_size 32 --max_sent_len 50 --encoder 2 --model_file model_lstm_att_gcn.t7 --ntags 4  --mode 1
 ```
 
 Evaluate the BiLSTM + Attention + GCN model:
 ```
-python main.py --batch_size 32 --max_sent_len 50 --encoder 2 --model_file model_bilstm_att_gcn.t7 --ntags 4 --mode 1
+python main.py --batch_size 32 --max_sent_len 50 --encoder 2 --model_file model_bilstm_att_gcn.t7 --ntags 4  --mode 1
 ```
 
 Evaluate the BERT + LSTM model:
@@ -142,35 +143,47 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 
 ## Experiment Results (Not completed)
 
-### For four classes Satire, Hoax, Propaganda and Trusted
 ### In domain dev set accuracy
-Model | Acc | Prec | Recall | F1
---- | --- | --- | --- | ---
-CNN | - | - | - | -
-BERT + LSTM | - | - | - | -
-LSTM | - | - | - | -
-BiLSTM | - | - | - | -
-GRU | - | - | - | -
-BiGRU | - | - | - | -
-LSTM + Attention | 93.3 | 93.3 | 92.4 | 92.5 / 93.3
-BiLSTM + Attention | - | - | - | -
-LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
-BiLSTM + Attention + GCN | - | - | - | -
+| Model                    | Acc  | Prec | Recall | F1   |
+|--------------------------|------|------|--------|------|
+| CNN                      | 67.5 | 67.5 | 67.5   | 67.4 |
+| BERT + LSTM              | 78.1 | 78.1 | 78.1   | 78.0 |
+| LSTM                     | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM                   | 81.4 | 82.2 | 81.4   | 81.3 |
+| GRU                      | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiGRU                    | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM + Attention       | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiGRU + Attention        | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0   | 85.1 |
+| BiGRU + Attention + GCN  | 85.0 | 85.9 | 85.0   | 85.1 |
 
+### Out of domain test set 1 accuracy
+| Model                    | Acc  | Prec | Recall | F1   |
+|--------------------------|------|------|--------|------|
+| CNN                      | 67.5 | 67.5 | 67.5   | 67.4 |
+| BERT + LSTM              | 78.1 | 78.1 | 78.1   | 78.0 |
+| LSTM                     | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM                   | 81.4 | 82.2 | 81.4   | 81.3 |
+| GRU                      | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiGRU                    | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM + Attention       | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiGRU + Attention        | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0   | 85.1 |
+| BiGRU + Attention + GCN  | 85.0 | 85.9 | 85.0   | 85.1 |
 
 ### Out of domain test set 2 accuracy
-Model | Acc | Prec | Recall | F1
---- | --- | --- | --- | ---
-CNN | - | - | - | -
-BERT + LSTM | - | - | - | -
-LSTM | - | - | - | -
-BiLSTM | - | - | - | -
-GRU | - | - | - | -
-BiGRU | - | - | - | -
-LSTM + Attention | 62.1 | 63.8 | 62.1 | 61.8 / 62.1
-BiLSTM + Attention | - | - | - | -
-**LSTM + Attention + GCN** | **63.2** | **66.3** | **63.0** | **62.3 / 63.1**
-BiLSTM + Attention + GCN | - | - | - | -
+| Model                    | Acc  | Prec | Recall | F1   |
+|--------------------------|------|------|--------|------|
+| CNN                      | 67.5 | 67.5 | 67.5   | 67.4 |
+| BERT + LSTM              | 78.1 | 78.1 | 78.1   | 78.0 |
+| LSTM                     | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM                   | 81.4 | 82.2 | 81.4   | 81.3 |
+| GRU                      | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiGRU                    | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM + Attention       | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiGRU + Attention        | 81.4 | 82.2 | 81.4   | 81.3 |
+| BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0   | 85.1 |
+| BiGRU + Attention + GCN  | 85.0 | 85.9 | 85.0   | 85.1 |
 
 ## Contributors
 

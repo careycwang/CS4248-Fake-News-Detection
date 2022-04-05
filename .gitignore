@@ -1,7 +1,11 @@
 venv/
+__pycache__/
+
 
 # data
 data/
 
 # MacOS files
 .DS_store
+
+.idea/
