@@ -13,7 +13,7 @@ We have researched on some models such as BERT and LSTMs which have currently be
 
 - [Labeled Unreliable News (LUN)](https://github.com/BUPT-GAMMA/CompareNet_FakeNewsDetection/releases/tag/dataset)
 - [Satirical and Legitimate News (SLN)](http://victoriarubin.fims.uwo.ca/news-verification/data-to-go/)
-- [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/projects/glove/)
+- [Global Vectors for Word Representation (GloVe)](https://nlp.stanford.edu/projects/glove/)
 
 Please make sure your dataset is downloaded and placed as follows:
 ```
@@ -93,6 +93,11 @@ You can also download our trained models in the [Google Drive link](https://driv
 
 To test the accuracy of the models, run the following command:
 
+Evaluate the Logistic Regression model:
+```
+python traditional.py
+```
+
 Evaluate the CNN model:
 ```
 python main.py --batch_size 1024 --encoder 1 --model_file model_cnn.t7 --ntags 4 --mode 1
@@ -150,6 +155,7 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 ### In domain dev set accuracy
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
+LR  | - | - | - | -
 CNN | - | - | - | -
 BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
 LSTM | - | - | - | -
@@ -165,6 +171,7 @@ BiLSTM + Attention + GCN | - | - | - | -
 ### Out of domain test set 2 accuracy
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
+LR | - | - | - | -
 CNN | - | - | - | -
 BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
 LSTM | - | - | - | -
