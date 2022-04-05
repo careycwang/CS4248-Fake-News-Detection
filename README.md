@@ -197,7 +197,7 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 =======
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR  | - | - | - | -
+LR  | 89.96 | 90.03 | 88.48 | 89.18 / 89.91
 CNN | - | - | - | -
 BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
 LSTM | - | - | - | -
