@@ -13,6 +13,7 @@ We have researched on some models such as BERT and LSTMs which have currently be
 
 - [Labeled Unreliable News (LUN)](https://github.com/BUPT-GAMMA/CompareNet_FakeNewsDetection/releases/tag/dataset)
 - [Satirical and Legitimate News (SLN)](http://victoriarubin.fims.uwo.ca/news-verification/data-to-go/)
+- [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/projects/glove/)
 
 Please make sure your dataset is downloaded and placed as follows:
 ```
@@ -24,6 +25,7 @@ CS4248-Fake-News-Detection
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
+    |   glove.6B.300d.txt
 ```
 
 ## Dependencies
