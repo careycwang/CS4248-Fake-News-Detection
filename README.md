@@ -25,7 +25,6 @@ CS4248-Fake-News-Detection
     │   *.py
 │   
 └───data
-    │   glove.6B.300d.txt
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
@@ -34,6 +33,7 @@ CS4248-Fake-News-Detection
 
 ## Dependencies
 Python version: `3.7`
+
 Please install dependencies by running the following command:
 ```
 pip install -r requirements.txt
@@ -89,6 +89,8 @@ To train a BERT + LSTM model, you should run the following command:
 ```
 python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --ntags 4 --mode 0
 ```
+
+If you want to use pretrained embeddings, add `--pte data/glove.6B.300d.txt --emb_dim 300` to your command to use GloVe embeddings.
 
 You can also download our trained models in the [Google Drive link](https://drive.google.com/drive/folders/12kBrRDdM08Hp4YCxjLcYCZjjuUiiyCx4?usp=sharing).
 
@@ -152,49 +154,7 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 
 ## Experiment Results (Not completed)
 
-### In domain dev set accuracy
-<<<<<<< HEAD
-| Model                    | Acc  | Prec | Recall | F1   |
-|--------------------------|------|------|--------|------|
-| CNN                      | 67.5 | 67.5 | 67.5   | 67.4 |
-| BERT + LSTM              | 78.1 | 78.1 | 78.1   | 78.0 |
-| LSTM                     | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM                   | 81.4 | 82.2 | 81.4   | 81.3 |
-| GRU                      | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiGRU                    | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM + Attention       | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiGRU + Attention        | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0   | 85.1 |
-| BiGRU + Attention + GCN  | 85.0 | 85.9 | 85.0   | 85.1 |
-
-### Out of domain test set 1 accuracy
-| Model                    | Acc  | Prec | Recall | F1   |
-|--------------------------|------|------|--------|------|
-| CNN                      | 67.5 | 67.5 | 67.5   | 67.4 |
-| BERT + LSTM              | 78.1 | 78.1 | 78.1   | 78.0 |
-| LSTM                     | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM                   | 81.4 | 82.2 | 81.4   | 81.3 |
-| GRU                      | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiGRU                    | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM + Attention       | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiGRU + Attention        | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0   | 85.1 |
-| BiGRU + Attention + GCN  | 85.0 | 85.9 | 85.0   | 85.1 |
-
-### Out of domain test set 2 accuracy
-| Model                    | Acc  | Prec | Recall | F1   |
-|--------------------------|------|------|--------|------|
-| CNN                      | 67.5 | 67.5 | 67.5   | 67.4 |
-| BERT + LSTM              | 78.1 | 78.1 | 78.1   | 78.0 |
-| LSTM                     | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM                   | 81.4 | 82.2 | 81.4   | 81.3 |
-| GRU                      | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiGRU                    | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM + Attention       | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiGRU + Attention        | 81.4 | 82.2 | 81.4   | 81.3 |
-| BiLSTM + Attention + GCN | 85.0 | 85.9 | 85.0   | 85.1 |
-| BiGRU + Attention + GCN  | 85.0 | 85.9 | 85.0   | 85.1 |
-=======
+### In domain dev set accuracy (train.csv 80:20 split)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
 LR  | 89.96 | 90.03 | 88.48 | 89.18 / 89.91
@@ -210,7 +170,7 @@ LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
 BiLSTM + Attention + GCN | - | - | - | -
 
 
-### Out of domain test set 2 accuracy
+### Out of domain test set accuracy (balancedtest.csv)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
 LR | 62.55 | 63.38 | 62.55 | 62.30 / 62.32
@@ -224,10 +184,11 @@ LSTM + Attention | 62.1 | 63.8 | 62.1 | 61.8 / 62.1
 BiLSTM + Attention | - | - | - | -
 **LSTM + Attention + GCN** | **63.2** | **66.3** | **63.0** | **62.3 / 63.1**
 BiLSTM + Attention + GCN | - | - | - | -
->>>>>>> a99187940df2886fd932f58a809b121734b3d231
 
 ## Contributors
 
 - [Chen Xihao](https://github.com/howtoosee)
 - [Wang Changqin](https://github.com/archiewang0716)
 - [Zhang Haolin](https://github.com/A0236053M)
+- [Zhang Lei](https://github.com/AronnZzz)
+- [Hon Jia Jing](https://github.com/JiaJingHon)
