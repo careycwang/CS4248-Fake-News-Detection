@@ -28,7 +28,7 @@ CS4248-Fake-News-Detection
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
-    |   glove.6B.300d.txt
+    |   glove.6B.100d.txt
 ```
 
 ## Dependencies
@@ -96,9 +96,14 @@ You can also download our trained models in the [Google Drive link](https://driv
 
 To test the accuracy of the models, run the following command:
 
-Evaluate the Logistic Regression model:
+Evaluate the Logistic Regression model on in-domain dev set:
 ```
-python traditional.py
+python traditional.py lr val
+```
+
+Evaluate the Logistic Regression model on out-of-domain test set:
+```
+python traditional.py lr test
 ```
 
 Evaluate the CNN model:
@@ -157,7 +162,7 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 ### In domain dev set accuracy (train.csv 80:20 split)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR  | 89.96 | 90.03 | 88.48 | 89.18 / 89.91
+LR  | 86.22 | 85.96 | 84.36 | 85.07 / 86.22
 CNN | - | - | - | -
 BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
 LSTM | - | - | - | -
@@ -173,7 +178,7 @@ BiLSTM + Attention + GCN | - | - | - | -
 ### Out of domain test set accuracy (balancedtest.csv)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR | 62.55 | 63.38 | 62.55 | 62.30 / 62.32
+LR | 59.75 | 60.55 | 59.75 | 59.55 / 59.75
 CNN | - | - | - | -
 BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
 LSTM | - | - | - | -
