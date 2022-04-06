@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-from sklearn.metrics import f1_score
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
@@ -11,6 +11,7 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
+import sys
 
 
 def train_model(model_name, x_train, y_train):
@@ -63,7 +64,7 @@ def glove_embedding(embeddings_index, x_original):
         else:
             no_word_found_index.append(i)
 
-    x_glove = np.zeros((len(x_glove_list), 300))
+    x_glove = np.zeros((len(x_glove_list), 100))
     for i in range(len(x_glove_list)):
         x_glove[i] = x_glove_list[i]
 
@@ -82,7 +83,8 @@ def label_clean(no_word_found_index, y_original):
 
 if __name__ == "__main__":
     np.random.seed(1)
-    model_name = "lr"        # nb, lr, svc, rf
+    model_name = sys.argv[1]        # nb, lr, svc, rf
+    val_or_test = sys.argv[2]       # val, test
     vocab_dict = None
     maxlen = 700
 
@@ -92,9 +94,15 @@ if __name__ == "__main__":
     train_csv = pd.read_csv("data/fulltrain.csv")
     y_train = train_csv.iloc[:, 0].to_numpy()
     x_train = train_csv.iloc[:, 1].to_numpy()
-    test_csv = pd.read_csv("data/balancedtest.csv")
-    y_test = test_csv.iloc[:, 0].to_numpy()
-    x_test = test_csv.iloc[:, 1].to_numpy()
+
+    x_test = None
+    y_test = None
+    if val_or_test == "val":
+        x_train, x_test, y_train, y_test = train_test_split(x_train, y_train, test_size=0.2, random_state=1)
+    else:
+        test_csv = pd.read_csv("data/balancedtest.csv")
+        y_test = test_csv.iloc[:, 0].to_numpy()
+        x_test = test_csv.iloc[:, 1].to_numpy()
 
     for i in range(x_train.shape[0]):
         x_train[i] = preprocess_sentence(x_train[i].lower())
@@ -113,7 +121,7 @@ if __name__ == "__main__":
     # vocab_dict = tokenizer.word_index
 
     embeddings_index = {}
-    f = open("data/glove.6B.300d.txt", "r")
+    f = open("data/glove.6B.100d.txt", "r")
     for line in f:
         values = line.split()
         word = values[0]
@@ -131,7 +139,14 @@ if __name__ == "__main__":
 
     print("start predict")
     y_pred = predict(model, x_test)
-    f1 = f1_score(y_test, y_pred, average='macro')
-    acc = accuracy_score(y_test, y_pred)
-    print('f1-score on test = {}'.format(f1))
-    print('accuracy on test = {}'.format(acc))
+    accuracy = accuracy_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred, average='macro')
+    recall = recall_score(y_test, y_pred, average='macro')
+    f1_micro = f1_score(y_test, y_pred, average='micro')
+    f1_macro = f1_score(y_test, y_pred, average='macro')
+    print('accuracy on test = {:.4f}'.format(accuracy))
+    print('precision on test = {:.4f}'.format(precision))
+    print('recall on test = {:.4f}'.format(recall))
+    print('f1_micro on test = {:.4f}'.format(f1_micro))
+    print('f1_macro on test = {:.4f}'.format(f1_macro))
+    print(classification_report(y_test, y_pred, digits=4))
