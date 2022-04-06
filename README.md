@@ -188,3 +188,5 @@ BiLSTM + Attention + GCN | - | - | - | -
 - [Chen Xihao](https://github.com/howtoosee)
 - [Wang Changqin](https://github.com/archiewang0716)
 - [Zhang Haolin](https://github.com/A0236053M)
+- [Zhang Lei](https://github.com/AronnZzz)
+- [Hon Jia Jing](https://github.com/JiaJingHon)
