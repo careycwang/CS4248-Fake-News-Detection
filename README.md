@@ -33,6 +33,7 @@ CS4248-Fake-News-Detection
 
 ## Dependencies
 Python version: `3.7`
+
 Please install dependencies by running the following command:
 ```
 pip install -r requirements.txt
