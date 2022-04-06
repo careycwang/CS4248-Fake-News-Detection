@@ -152,7 +152,7 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 
 ## Experiment Results (Not completed)
 
-### In domain dev set accuracy
+### In domain dev set accuracy (train.csv 80:20 split)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
 LR  | 89.96 | 90.03 | 88.48 | 89.18 / 89.91
@@ -168,7 +168,7 @@ LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
 BiLSTM + Attention + GCN | - | - | - | -
 
 
-### Out of domain test set 2 accuracy
+### Out of domain test set accuracy (balancedtest.csv)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
 LR | 62.55 | 63.38 | 62.55 | 62.30 / 62.32
