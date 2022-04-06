@@ -53,7 +53,7 @@ class Evaluator:
         return accuracy, all_actual, all_predicted
 
     def evaluate(self):
-        pte=None
+        pte = None
         if self.params.pte:
             pte = Utils(self.params, self.data_loader).get_pre_trained_embeddings()
 
