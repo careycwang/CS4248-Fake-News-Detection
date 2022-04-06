@@ -90,6 +90,8 @@ To train a BERT + LSTM model, you should run the following command:
 python bert_classifier.py --batch_size 4 --max_epochs 10 --max_seq_length 500 --max_sent_length 70 --ntags 4 --mode 0
 ```
 
+If you want to use pretrained embeddings, add `--pte data/glove.6B.300d.txt --emb_dim 300` to your command to use GloVe embeddings.
+
 You can also download our trained models in the [Google Drive link](https://drive.google.com/drive/folders/12kBrRDdM08Hp4YCxjLcYCZjjuUiiyCx4?usp=sharing).
 
 To test the accuracy of the models, run the following command:
