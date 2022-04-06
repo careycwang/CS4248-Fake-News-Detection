@@ -1,10 +1,14 @@
 import os
+import warnings
 import csv
 import pandas as pd
 import numpy as np
 import torch
 import torch.utils.data
 from sklearn.model_selection import train_test_split
+
+
+warnings.filterwarnings('ignore', np.VisibleDeprecationWarning)
 
 
 class DataLoader:
