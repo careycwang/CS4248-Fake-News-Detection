@@ -28,7 +28,7 @@ CS4248-Fake-News-Detection
     │   balancedtest.csv
     │   fulltrain.csv
     |   test.xlsx
-    |   glove.6B.100d.txt
+    |   glove.6B.300d.txt
 ```
 
 ## Dependencies
