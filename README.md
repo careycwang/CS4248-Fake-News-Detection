@@ -98,12 +98,12 @@ To test the accuracy of the models, run the following command:
 
 Evaluate the Logistic Regression model on in-domain dev set:
 ```
-python traditional.py lr val
+python traditional.py lr val tfidf
 ```
 
 Evaluate the Logistic Regression model on out-of-domain test set:
 ```
-python traditional.py lr test
+python traditional.py lr test tfidf
 ```
 
 Evaluate the CNN model:
@@ -178,7 +178,7 @@ BiLSTM + Attention + GCN | - | - | - | -
 ### Out of domain test set accuracy (balancedtest.csv)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR | 59.75 | 60.55 | 59.75 | 59.55 / 59.75
+LR | 69.52 | 71.48 | 69.52 | 68.44 / 69.52
 CNN | - | - | - | -
 BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
 LSTM | - | - | - | -
