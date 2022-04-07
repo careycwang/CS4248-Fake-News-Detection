@@ -12,6 +12,7 @@ from nltk.stem import WordNetLemmatizer
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 import sys
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def train_model(model_name, x_train, y_train):
@@ -64,7 +65,7 @@ def glove_embedding(embeddings_index, x_original):
         else:
             no_word_found_index.append(i)
 
-    x_glove = np.zeros((len(x_glove_list), 100))
+    x_glove = np.zeros((len(x_glove_list), 300))
     for i in range(len(x_glove_list)):
         x_glove[i] = x_glove_list[i]
 
@@ -85,12 +86,14 @@ if __name__ == "__main__":
     np.random.seed(1)
     model_name = sys.argv[1]        # nb, lr, svc, rf
     val_or_test = sys.argv[2]       # val, test
+    tokenize_method = sys.argv[3]   # bow, glove, tfidf
     vocab_dict = None
     maxlen = 700
 
     print("Model " + model_name + ":")
 
     print("start preprocess")
+
     train_csv = pd.read_csv("data/fulltrain.csv")
     y_train = train_csv.iloc[:, 0].to_numpy()
     x_train = train_csv.iloc[:, 1].to_numpy()
@@ -111,33 +114,38 @@ if __name__ == "__main__":
 
     print("start tokenize")
 
-    # tokenizer = Tokenizer()
-    # tokenizer.fit_on_texts(x_train)
-    #
-    # sequences_train = tokenizer.texts_to_sequences(x_train)
-    # x_train = pad_sequences(sequences_train, maxlen=maxlen)
-    # sequences_test = tokenizer.texts_to_sequences(x_test)
-    # x_test = pad_sequences(sequences_test, maxlen=maxlen)
-    # vocab_dict = tokenizer.word_index
-
-    embeddings_index = {}
-    f = open("data/glove.6B.100d.txt", "r")
-    for line in f:
-        values = line.split()
-        word = values[0]
-        coefs = np.asarray(values[1:], dtype='float32')
-        embeddings_index[word] = coefs
-    f.close()
-
-    x_train, train_no_word_found_index = glove_embedding(embeddings_index, x_train)
-    y_train = label_clean(train_no_word_found_index, y_train)
-    x_test, test_no_word_found_index = glove_embedding(embeddings_index, x_test)
-    y_test = label_clean(test_no_word_found_index, y_test)
+    if tokenize_method == "bow":
+        tokenizer = Tokenizer()
+        tokenizer.fit_on_texts(x_train)
+        sequences_train = tokenizer.texts_to_sequences(x_train)
+        x_train = pad_sequences(sequences_train, maxlen=maxlen)
+        sequences_test = tokenizer.texts_to_sequences(x_test)
+        x_test = pad_sequences(sequences_test, maxlen=maxlen)
+        vocab_dict = tokenizer.word_index
+    elif tokenize_method == "glove":
+        embeddings_index = {}
+        f = open("data/glove.6B.300d.txt", "r")
+        for line in f:
+            values = line.split()
+            word = values[0]
+            coefs = np.asarray(values[1:], dtype='float32')
+            embeddings_index[word] = coefs
+        f.close()
+        x_train, train_no_word_found_index = glove_embedding(embeddings_index, x_train)
+        y_train = label_clean(train_no_word_found_index, y_train)
+        x_test, test_no_word_found_index = glove_embedding(embeddings_index, x_test)
+        y_test = label_clean(test_no_word_found_index, y_test)
+    else:
+        tfidf_vec = TfidfVectorizer(stop_words='english', max_features=1000).fit(x_train)
+        x_train = tfidf_vec.transform(x_train).toarray()
+        x_test = tfidf_vec.transform(x_test).toarray()
 
     print("start train")
+
     model = train_model(model_name, x_train, y_train)
 
     print("start predict")
+    
     y_pred = predict(model, x_test)
     accuracy = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred, average='macro')
