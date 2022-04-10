@@ -139,6 +139,35 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 
 ## Experiment Results (Not completed)
 
+### For two classes Satire / Trusted
+
+### In domain dev set accuracy
+Model | Acc | Prec | Recall | F1
+--- | --- | --- | --- | ---
+CNN | 96.74 | 96.76 | 96.53 | 96.64 / 96.74 x
+BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
+LSTM | 95.63 | 95.49 | 95.55 | 95.52 / 95.63 x
+BiLSTM | 95.82 | 95.77 | 95.63 | 95.70 / 95.82 x
+LSTM + Attention | 96.32 | 96.09 | 96.40 | 96.24 / 96.32 x
+BiLSTM + Attention | 97.59 | 97.62 | 97.43 | 97.52 / 97.59 x
+LSTM + Attention + GCN | 98.71 | 98.71 | 98.64 | 98.67 / 98.71 x
+**BiLSTM + Attention + GCN** | **98.50** | **98.62** | **98.30** | **98.45 / 98.50**
+
+### Out of domain test set 1 accuracy
+Model | Acc | Prec | Recall | F1
+--- | --- | --- | --- | ---
+CNN | 66.39 | 66.54 | 66.39 | 66.31 / 66.39 x
+BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
+LSTM | 82.5 | 82.62 | 82.5 | 82.48 / 82.5 x
+BiLSTM | 76.67 | 76.75 | 76.67 | 76.65 / 76.67 x
+LSTM + Attention | 84.17 | 84.25 | 84.17 | 84.16 / 84.17 x
+BiLSTM + Attention | 68.05 | 72.93 | 68.05 | 66.26 / 68.05 x
+LSTM + Attention + GCN | 87.78 | 88.58 | 87.78 | 87.71 / 87.78 x
+**BiLSTM + Attention + GCN** | **91.11** | **91.19** | **91.11** | **91.11 / 91.11**
+
+
+### For four classes Satire, Hoax, Propaganda and Trusted
+
 ### In domain dev set accuracy (train.csv 80:20 split)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
