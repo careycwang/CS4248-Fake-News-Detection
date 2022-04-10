@@ -150,7 +150,7 @@ BiLSTM | 93.9 | 93.7 | 93.7 | 93.7 / 93.9
 LSTM + Attention | 93.3 | 93.3 | 92.4 | 92.5 / 93.3
 BiLSTM + Attention | 95.8 | 95.6 | 95.6 | 95.6 / 95.8
 LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
-BiLSTM + Attention + GCN | 98.3 | 98.3 | 98.2 | 98.2 / 98.3
+**BiLSTM + Attention + GCN** | **98.3** | **98.3** | **98.2** | **98.2 / 98.3**
 
 
 ### Out of domain test set accuracy (balancedtest.csv)
