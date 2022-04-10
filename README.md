@@ -162,8 +162,8 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 ### In domain dev set accuracy (train.csv 80:20 split)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR  | 92.10 | 92.08 | 91.45 | 91.75 / 92.10
-CNN | - | - | - | -
+LR  | 92.1 | 92.1 | 91.5 | 91.8 / 92.1
+CNN | 96.2 | 96.3 | 95.8 | 96.1 / 96.2
 BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
 LSTM | - | - | - | -
 BiLSTM | - | - | - | -
