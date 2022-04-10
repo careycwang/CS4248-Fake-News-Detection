@@ -170,7 +170,7 @@ BiLSTM | 93.9 | 93.7 | 93.7 | 93.7 / 93.9
 GRU | - | - | - | -
 BiGRU | - | - | - | -
 LSTM + Attention | 93.3 | 93.3 | 92.4 | 92.5 / 93.3
-BiLSTM + Attention | - | - | - | -
+BiLSTM + Attention | 95.8 | 95.6 | 95.6 | 95.6 / 95.8
 LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
 BiLSTM + Attention + GCN | - | - | - | -
 
@@ -186,7 +186,7 @@ BiLSTM | 56.9 | 58.9 | 56.9 | 56.0 / 56.9
 GRU | - | - | - | -
 BiGRU | - | - | - | -
 LSTM + Attention | 62.1 | 63.8 | 62.1 | 61.8 / 62.1
-BiLSTM + Attention | - | - | - | -
+BiLSTM + Attention | 62.1 | 62.5 | 62.1 | 61.5 / 62.1
 **LSTM + Attention + GCN** | **63.2** | **66.3** | **63.0** | **62.8 / 64.1**
 BiLSTM + Attention + GCN | - | - | - | -
 
