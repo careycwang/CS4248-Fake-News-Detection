@@ -165,7 +165,7 @@ Model | Acc | Prec | Recall | F1
 LR  | 92.1 | 92.1 | 91.5 | 91.8 / 92.1
 CNN | 96.2 | 96.3 | 95.8 | 96.1 / 96.2
 BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
-LSTM | - | - | - | -
+LSTM | 88.3 | 87.8 | 87.8 | 87.7 / 88.3
 BiLSTM | - | - | - | -
 GRU | - | - | - | -
 BiGRU | - | - | - | -
@@ -178,10 +178,10 @@ BiLSTM + Attention + GCN | - | - | - | -
 ### Out of domain test set accuracy (balancedtest.csv)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR | 69.52 | 71.48 | 69.52 | 68.44 / 69.52
-CNN | - | - | - | -
+LR | 69.5 | 71.5 | 69.5 | 68.4 / 69.5
+CNN | 45.6 | 47.4 | 45.6 | 44.4 / 45.6
 BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
-LSTM | - | - | - | -
+LSTM | 51.6 | 55.6 | 51.6 | 48.8 / 51.6
 BiLSTM | - | - | - | -
 GRU | - | - | - | -
 BiGRU | - | - | - | -
