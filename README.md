@@ -65,16 +65,6 @@ To train a BiLSTM + Attention model, you should run the following command:
 python main.py --batch_size 512 --config bilstm_att --encoder 0 --ntags 4 --mode 0 --bidirectional --attention
 ```
 
-To train a GRU + Attention model, you should run the following command:
-```
-python main.py --batch_size 512 --config gru_att --encoder 0 --ntags 4 --mode 0 --attention
-```
-
-To train a BiGRU + Attention model, you should run the following command:
-```
-python main.py --batch_size 512 --config bigru_att --encoder 0 --ntags 4 --mode 0 --bidirectional --attention
-```
-
 To train a LSTM + Attention + GCN model, you should run the following command:
 ```
 python main.py --batch_size 32 --max_epochs 10 --config lstm_att_gcn --max_sent_len 50 --encoder 2 --ntags 4 --mode 0 --attention
@@ -131,16 +121,6 @@ Evaluate the BiLSTM + Attention model:
 python main.py --batch_size 1024 --encoder 0 --model_file model_bilstm_att.t7 --ntags 4 --mode 1 --bidirectional --attention
 ```
 
-Evaluate the GRU + Attention model:
-```
-python main.py --batch_size 1024 --encoder 0 --model_file model_gru_att.t7 --ntags 4 --mode 1 --attention
-```
-
-Evaluate the BiGRU + Attention model:
-```
-python main.py --batch_size 1024 --encoder 0 --model_file model_bigru_att.t7 --ntags 4 --mode 1 --attention
-```
-
 Evaluate the LSTM + Attention + GCN model:
 ```
 python main.py --batch_size 32 --max_sent_len 50 --encoder 2 --model_file model_lstm_att_gcn.t7 --ntags 4  --mode 1 --attention
@@ -167,12 +147,10 @@ CNN | 96.2 | 96.3 | 95.8 | 96.1 / 96.2
 BERT + LSTM | 95.3 | 95.3 | 94.7 | 95.0 / 95.3
 LSTM | 88.3 | 87.8 | 87.8 | 87.7 / 88.3
 BiLSTM | 93.9 | 93.7 | 93.7 | 93.7 / 93.9
-GRU | - | - | - | -
-BiGRU | - | - | - | -
 LSTM + Attention | 93.3 | 93.3 | 92.4 | 92.5 / 93.3
 BiLSTM + Attention | 95.8 | 95.6 | 95.6 | 95.6 / 95.8
 LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
-BiLSTM + Attention + GCN | - | - | - | -
+BiLSTM + Attention + GCN | 98.3 | 98.3 | 98.2 | 98.2 / 98.3
 
 
 ### Out of domain test set accuracy (balancedtest.csv)
@@ -183,12 +161,10 @@ CNN | 45.6 | 47.4 | 45.6 | 44.4 / 45.6
 BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
 LSTM | 51.6 | 55.6 | 51.6 | 48.8 / 51.6
 BiLSTM | 56.9 | 58.9 | 56.9 | 56.0 / 56.9
-GRU | - | - | - | -
-BiGRU | - | - | - | -
 LSTM + Attention | 62.1 | 63.8 | 62.1 | 61.8 / 62.1
 BiLSTM + Attention | 62.1 | 62.5 | 62.1 | 61.5 / 62.1
 **LSTM + Attention + GCN** | **63.2** | **66.3** | **63.0** | **62.8 / 64.1**
-BiLSTM + Attention + GCN | - | - | - | -
+BiLSTM + Attention + GCN | 57.8 | 60.7 | 57.6 | 56.4 / 57.8
 
 ## Contributors
 
