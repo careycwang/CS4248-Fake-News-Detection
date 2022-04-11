@@ -1,19 +1,18 @@
 # CS4248-Fake-News-Detection
 
-CS4248 Group 23 Project: Combining Syntax- and Semantic-level Representations for Unreliable News Classification
-
-Reference Github: https://github.com/MysteryVaibhav/fake_news_semantics
+CS4248 Group 23 Project: Attention-based Graph Neural Networks for Multi-class Fake News Classification
 
 ## Introduction
 
-We have researched on some models such as BERT and LSTMs which have currently been implemented. Furthermore, we’ve started exploring different feature extraction methods (on both semantics and syntax).
+We first augment Long Short-Term Memory neural networks (LSTMs) to include the attention mechanism and empirically show its effectiveness. Then we propose a new model that attaches the attention-based LSTM layers as input to Graph Convolutional Networks (GCNs).With experiments ran on currently-available news datasets, we empirically show that our proposed model architecture out-performs current neural network baselines and several recently published models. Lastly, we demonstrate our model’s ability to generalize to out-of-domain datasets.
 
 
 ## Datasets
 
 - [Labeled Unreliable News (LUN)](https://github.com/BUPT-GAMMA/CompareNet_FakeNewsDetection/releases/tag/dataset)
 - [Satirical and Legitimate News (SLN)](http://victoriarubin.fims.uwo.ca/news-verification/data-to-go/)
-- [Global Vectors for Word Representation (GloVe)](https://nlp.stanford.edu/projects/glove/)
+
+Pretrained embeddings GloVe: [Global Vectors for Word Representation (GloVe)](https://nlp.stanford.edu/projects/glove/)
 
 Please make sure your dataset is downloaded and placed as follows:
 ```
@@ -22,6 +21,9 @@ CS4248-Fake-News-Detection
 │   *.py
 │   
 └───src
+    │   *.py
+
+└───Feature Engineering
     │   *.py
 │   
 └───data
@@ -137,13 +139,14 @@ python bert_classifier.py --batch_size 4 --model_file model_bert.t7 --max_seq_le
 ```
 
 
-## Experiment Results (Not completed)
+## Experiment Results
 
 ### For two classes Satire / Trusted
 
 ### In domain dev set accuracy
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
+LR  | 92.11 | 92.21 | 91.35 | 91.38 / 92.12
 CNN | 96.74 | 96.76 | 96.53 | 96.64 / 96.74
 BERT + LSTM | 91.72 | 92.74| 90.56|91.31 
 LSTM | 95.63 | 95.49 | 95.55 | 95.52 / 95.63
@@ -153,11 +156,12 @@ BiLSTM + Attention | 97.59 | 97.62 | 97.43 | 97.52 / 97.59
 LSTM + Attention + GCN | 98.71 | 98.71 | 98.64 | 98.67 / 98.71
 **BiLSTM + Attention + GCN** | **98.50** | **98.62** | **98.30** | **98.45 / 98.50**
 
-### Out of domain test set 1 accuracy
+### Out of domain test set accuracy
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
+LR  | 82.12 | 81.95 | 81.56 | 81.13 / 81.12
 CNN | 66.39 | 66.54 | 66.39 | 66.31 / 66.39
-BERT + LSTM | 75.83| 76.62| 75.83| 75.65
+BERT + LSTM | 75.83 | 76.62| 75.83| 75.65
 LSTM | 82.5 | 82.62 | 82.5 | 82.48 / 82.5
 BiLSTM | 76.67 | 76.75 | 76.67 | 76.65 / 76.67
 LSTM + Attention | 84.17 | 84.25 | 84.17 | 84.16 / 84.17
@@ -185,7 +189,7 @@ LSTM + Attention + GCN | 98.2 | 98.1 | 98.1 | 98.1 / 98.2
 ### Out of domain test set accuracy (balancedtest.csv)
 Model | Acc | Prec | Recall | F1
 --- | --- | --- | --- | ---
-LR | 69.5 | 71.5 | 69.5 | 68.4 / 69.5
+LR | 59.5 | 61.5 | 59.5 | 58.4 / 59.5
 CNN | 45.6 | 47.4 | 45.6 | 44.4 / 45.6
 BERT + LSTM | 56.0 | 57.0 | 56.0 | 55.1 / 56.0
 LSTM | 51.6 | 55.6 | 51.6 | 48.8 / 51.6
